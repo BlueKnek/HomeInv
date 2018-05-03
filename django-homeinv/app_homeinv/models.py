@@ -1,6 +1,7 @@
 import json
 
 from django.db import models
+from django.urls import reverse_lazy
 
 
 class Item(models.Model):
@@ -10,3 +11,6 @@ class Item(models.Model):
 
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
+
+    def get_absolute_url(self):
+        return reverse_lazy('homeinv:item-detail', kwargs={'pk': self.pk})
