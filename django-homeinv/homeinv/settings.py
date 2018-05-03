@@ -16,6 +16,8 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VAR_DIR = os.path.join(BASE_DIR, 'var')
 
+MEDIA_ROOT = os.path.join(VAR_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
