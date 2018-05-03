@@ -7,6 +7,8 @@ url = "https://pypi.python.org/simple"
 
 [dev-packages]
 
+pylint = "*"
+"pep8" = "*"
 
 
 [packages]
