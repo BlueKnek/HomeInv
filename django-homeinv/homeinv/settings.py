@@ -19,6 +19,8 @@ VAR_DIR = os.path.join(BASE_DIR, 'var')
 MEDIA_ROOT = os.path.join(VAR_DIR, 'media')
 MEDIA_URL = '/media/'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'app_homeinv.apps.AppHomeinvConfig',
 ]
 
