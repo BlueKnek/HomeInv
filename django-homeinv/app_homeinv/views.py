@@ -43,7 +43,7 @@ class ItemDetailView(generic.DetailView):
 
 class ItemUpdateView(generic.UpdateView):
     model = models.Item
-    fields = ['name', 'description', 'photo']
+    fields = ['name', 'description', 'photo', 'groups']
 
 
 class ItemDeleteView(generic.DeleteView):
