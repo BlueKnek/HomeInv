@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <h1 class="display-4">{{ object.name }}</h1>
+  <img src="{{ object.photo.url }}" style="width: 20em;"/>
+  <p>{{ object.description }}</p>
+  <a href="{% url 'homeinv:group-update' object.pk %}">Edit</a>
+  <a href="{% url 'homeinv:group-delete' object.pk %}">Delete</a>
+</div>
+{% endblock content %}
