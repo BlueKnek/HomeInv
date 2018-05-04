@@ -15,6 +15,9 @@ class Group(models.Model):
     def get_absolute_url(self):
         return reverse_lazy('homeinv:group-detail', kwargs={'pk': self.pk})
 
+    def __str__(self):
+        return self.name
+
 
 class Item(models.Model):
     name = models.CharField(max_length=100)
