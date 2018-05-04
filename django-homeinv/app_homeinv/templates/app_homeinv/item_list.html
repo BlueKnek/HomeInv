@@ -1,22 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-<style>
-  .my-thumb {
-    width: 5em;
-    height: 5em;
-    object-fit: cover;
-  }
-
-  .my-item {
-    display: flex;
-  }
-
-  .my-hspace {
-    width: 1em;
-  }
-</style>
-
 <div class="container">
   <h1 class="display-4">Item list</h1>
   {% include "app_homeinv/includes/items_list.html" with items=object_list only %}

@@ -1,3 +1,19 @@
+<style>
+  .my-thumb {
+    width: 5em;
+    height: 5em;
+    object-fit: cover;
+  }
+
+  .my-item {
+    display: flex;
+  }
+
+  .my-hspace {
+    width: 1em;
+  }
+</style>
+
 <div class="list-group">
   {% for item in items %}
     <a href="{% url 'homeinv:item-detail' item.pk %}" class="my-item list-group-item list-group-item-action">
