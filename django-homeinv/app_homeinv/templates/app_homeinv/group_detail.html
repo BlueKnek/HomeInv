@@ -8,10 +8,6 @@
   <a href="{% url 'homeinv:group-update' object.pk %}">Edit</a>
   <a href="{% url 'homeinv:group-delete' object.pk %}">Delete</a>
 
-  <div>
-    {% for item in object.item_set.all %}
-      <div>{{ item }}</div>
-    {% endfor %}
-  </div>
+  {% include "app_homeinv/includes/items_list.html" with items=object.item_set.all only %}
 </div>
 {% endblock content %}
