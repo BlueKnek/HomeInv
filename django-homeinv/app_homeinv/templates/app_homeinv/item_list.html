@@ -1,14 +1,42 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+  .my-thumb {
+    width: 5em;
+    height: 5em;
+    object-fit: cover;
+  }
+
+  .my-item {
+    display: flex;
+  }
+
+  .my-hspace {
+    width: 1em;
+  }
+</style>
+
 <div class="container">
   <h1 class="display-4">Item list</h1>
 
-  <ul>
+  <div class="list-group">
     {% for item in object_list %}
-      <li>{{ item.name }}</li>
+      <a href="{% url 'homeinv:item-detail' item.pk %}" class="my-item list-group-item list-group-item-action">
+        <img class="my-thumb rounded" src="{{ item.photo.url }}" alt="{{ item.name }} photo">
+        <div class="my-hspace"></div>
+        <div class="w-100">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ item.name }}</h5>
+            <small>{{ item.created }}</small>
+          </div>
+          <p>
+            {{ item.description }}
+          </p>
+        </div>
+      </a>
     {% endfor %}
-  </ul>
+    </div>
 
 </div>
 {% endblock content %}
