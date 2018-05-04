@@ -23,3 +23,6 @@ class ItemDeleteView(generic.DeleteView):
     model = models.Item
     success_url = reverse_lazy('index')
 
+
+class ItemListView(generic.ListView):
+    model = models.Item

@@ -5,6 +5,7 @@ from . import views
 app_name = 'app_homeinv'
 
 urlpatterns = [
+    path('items', views.ItemListView.as_view(), name='item-list'),
     path('item/create', views.ItemCreateView.as_view(), name='item-create'),
     path('item/<pk>', views.ItemDetailView.as_view(), name='item-detail'),
     path('item/<pk>/update', views.ItemUpdateView.as_view(), name='item-update'),

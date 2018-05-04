@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <h1 class="display-4">Item list</h1>
+
+  <ul>
+    {% for item in object_list %}
+      <li>{{ item.name }}</li>
+    {% endfor %}
+  </ul>
+
+</div>
+{% endblock content %}
