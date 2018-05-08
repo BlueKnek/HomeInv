@@ -1,11 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
-  <h1 class="display-4">{{ object.name }}</h1>
-  <img src="{{ object.photo.url }}" style="width: 20em;"/>
-  <p>{{ object.description }}</p>
-  <a href="{% url 'homeinv:item-update' object.pk %}">Edit</a>
-  <a href="{% url 'homeinv:item-delete' object.pk %}">Delete</a>
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="media">
+      <img class="rounded shadow mr-3" src="{{ object.photo.url }}" style="max-width: 20vw;"/>
+      <div class="media-body">
+        <h1 class="h5">{{ object.name }}</h1>
+        <p>{{ object.description }}</p>
+        <a class="btn btn-secondary" href="{% url 'homeinv:item-update' object.pk %}">Edit</a>
+        <a class="btn btn-danger" href="{% url 'homeinv:item-delete' object.pk %}">Delete</a>
+      </div>
+    </div>
+  </div>
 </div>
+
 {% endblock content %}
