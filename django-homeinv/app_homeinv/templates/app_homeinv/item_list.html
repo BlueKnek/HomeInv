@@ -3,6 +3,9 @@
 {% block content %}
 <div class="container">
   <h1 class="display-4">Item list</h1>
+
+  <a class="btn btn-primary mb-3" href="{% url 'homeinv:item-create' %}">Add item</a>
+
   {% include "app_homeinv/includes/items_list.html" with items=object_list only %}
 </div>
 

@@ -20,6 +20,8 @@
 <div class="container">
   <h1 class="display-4">Group list</h1>
 
+  <a class="btn btn-primary mb-3" href="{% url 'homeinv:group-create' %}">Add group</a>
+
   <div class="list-group">
     {% for group in object_list %}
       <a href="{% url 'homeinv:group-detail' group.pk %}" class="my-item list-group-item list-group-item-action">
