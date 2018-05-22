@@ -42,3 +42,6 @@ class ItemPlaced(models.Model):
 
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
+
+    def get_absolute_url(self):
+        return self.item.get_absolute_url()

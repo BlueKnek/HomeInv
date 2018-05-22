@@ -87,3 +87,18 @@ class ItemPlacedCreateView(ParentCreateView):
     model = models.ItemPlaced
     parent_field = 'item'
     fields = ['item', 'description', 'count']
+
+
+class ItemPlacedUpdateView(generic.UpdateView):
+    template_name = 'form.html'
+    model = models.ItemPlaced
+    fields = ['item', 'description', 'count']
+
+
+class ItemPlacedDeleteView(generic.DeleteView):
+    template_name = 'confirm_delete.html'
+    model = models.ItemPlaced
+    fields = ['item', 'description', 'count']
+    
+    def get_success_url(self):
+        return self.object.item.get_absolute_url()

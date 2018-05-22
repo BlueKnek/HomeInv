@@ -23,4 +23,16 @@
   </div>
 </div>
 
+<div class="container">
+  <div>
+    {% for itemplaced in object.itemplaced_set.all %}
+      <div>
+        {{ itemplaced.description }} - {{ itemplaced.count }}
+        <a href="{% url 'homeinv:item-placed-update' itemplaced.pk %}">Edit</a>
+        <a href="{% url 'homeinv:item-placed-delete' itemplaced.pk %}">Delete</a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
 {% endblock content %}

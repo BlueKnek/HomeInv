@@ -18,5 +18,9 @@ urlpatterns = [
     path('item/<pk>', views.ItemDetailView.as_view(), name='item-detail'),
     path('item/<pk>/update', views.ItemUpdateView.as_view(), name='item-update'),
     path('item/<pk>/delete', views.ItemDeleteView.as_view(), name='item-delete'),
-    path('item/<pk>/create-placed/', views.ItemPlacedCreateView.as_view(), name='item-placed-create')
+    path('item/<pk>/create-placed/', views.ItemPlacedCreateView.as_view(), name='item-placed-create'),
+
+    # Item-Placed
+    path('item-placed/<pk>/update', views.ItemPlacedUpdateView.as_view(), name='item-placed-update'),
+    path('item-placed/<pk>/delete', views.ItemPlacedDeleteView.as_view(), name='item-placed-delete'),
 ]
