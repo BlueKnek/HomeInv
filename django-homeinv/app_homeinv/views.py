@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
+from django.views.generic.detail import SingleObjectTemplateResponseMixin
+from django import forms
 from django.urls import reverse_lazy
 
 from . import models
@@ -53,3 +55,35 @@ class ItemDeleteView(generic.DeleteView):
 
 class ItemListView(generic.ListView):
     model = models.Item
+
+
+class ParentMixin():
+    def get_success_url(self):
+        return getattr(self.object, self.parent_field).get_absolute_url()
+
+
+class ParentCreateView(
+    ParentMixin,
+    SingleObjectTemplateResponseMixin,
+    generic.edit.BaseCreateView
+):
+    parent_field = None
+
+    template_name_suffix = '_form'
+
+    def get_initial(self):
+        return {
+            self.parent_field: self.kwargs['pk']
+        }
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.fields[self.parent_field].widget = forms.HiddenInput()
+        return form
+
+
+class ItemPlacedCreateView(ParentCreateView):
+    template_name = 'form.html'
+    model = models.ItemPlaced
+    parent_field = 'item'
+    fields = ['item', 'description', 'count']

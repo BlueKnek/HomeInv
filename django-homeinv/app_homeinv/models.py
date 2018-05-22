@@ -33,3 +33,12 @@ class Item(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ItemPlaced(models.Model):
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    description = models.TextField()
+    count = models.IntegerField(default=0)
+
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
