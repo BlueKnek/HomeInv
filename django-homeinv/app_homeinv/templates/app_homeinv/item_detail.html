@@ -9,6 +9,12 @@
       <div class="media-body">
         <h1 class="h5">{{ object.name }}</h1>
         <p>{{ object.description }}</p>
+        <div>
+          <strong> Groups: </strong>
+          {% for group in object.groups.all %}
+            <a href="{{ group.get_absolute_url }}">{{ group }}</a>
+          {% endfor %}
+        </div>
         <a class="btn btn-secondary" href="{% url 'homeinv:item-update' object.pk %}">Edit</a>
         <a class="btn btn-danger" href="{% url 'homeinv:item-delete' object.pk %}">Delete</a>
       </div>
